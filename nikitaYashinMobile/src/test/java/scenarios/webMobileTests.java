@@ -1,22 +1,29 @@
 package scenarios;
 
-import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import pageObjects.GoogleHomePageObject;
 import setup.BaseTest;
-
-import static org.testng.Assert.assertNotNull;
-import static org.testng.AssertJUnit.assertEquals;
-import static org.testng.AssertJUnit.assertTrue;
 
 public class webMobileTests extends BaseTest {
 
-    @Test(groups = {"web"}, description = "search page and make a search using keyword ‘EPAM’")
-    public void searchEpamInGoogle() throws IllegalAccessException, NoSuchFieldException, InstantiationException {
-        getDriver().get("https://www.google.com/");
-        getDriver().findElement(By.xpath("//input[@name='q']")).sendKeys("EPAM");
-        getDriver().findElement(By.xpath("//input[@name='q']")).sendKeys(Keys.ENTER);
-        assertNotNull(getDriver().findElement(By.xpath("//cite[text() = \"www.epam.com\"]")));
+    GoogleHomePageObject googleHomePageObject = new GoogleHomePageObject();
+
+    //describes url, query field(xPath), query, query result(xPath)
+    @DataProvider(name = "data-provider")
+    public Object[][] dataProviderMethod() {
+        return new Object[][]{
+                {"https://www.google.com/", "//input[@name='q']", "EPAM", "//cite[text() = \"www.epam.com\"]"}
+        };
+    }
+
+    @Test(dataProvider = "data-provider", groups = {"web"}, description = "search page and make a search using keyword ‘EPAM’")
+    public void searchEpamInGoogle(String site, String inputField, String query, String result) {
+        getDriver().get(site);
+        getDriver().findElement(By.xpath(inputField)).sendKeys(query, Keys.ENTER);
+        getDriver().findElement(By.xpath(result)).isDisplayed();
     }
 
 }
