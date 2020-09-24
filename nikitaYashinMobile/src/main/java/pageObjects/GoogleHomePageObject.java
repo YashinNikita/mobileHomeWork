@@ -17,7 +17,7 @@ public class GoogleHomePageObject {
 
     @FindBy(xpath = "//input[@name='q']")
     WebElement queryField;
-    @FindBy(id = "result-stats")
+    @FindBy(xpath = "//div[@id='rso']//following-sibling::*")
     List<WebElement> resultStatuses;
 
     public GoogleHomePageObject(AppiumDriver appiumDriver) {

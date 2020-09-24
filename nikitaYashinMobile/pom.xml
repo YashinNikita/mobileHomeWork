@@ -8,6 +8,10 @@
     <artifactId>mobileTaTrainingV2</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+        <token>9ab9a5cf-a841-436f-b11a-07232c011878</token>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>io.appium</groupId>
@@ -39,6 +43,7 @@
                     </suiteXmlFiles>
                     <systemPropertyVariables>
                         <ts.appium>http://localhost:4723/wd/hub</ts.appium>
+                        <!--<ts.appium>https://EPM-TSTF:${token}@mobilecloud.epam.com/wd/hub</ts.appium>-->
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
@@ -71,6 +76,34 @@
             </activation>
             <properties>
                 <suite.file>./src/test/resources/webTNG.xml</suite.file>
+            </properties>
+        </profile>
+        <profile>
+            <id>cloudWebTNG</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>./src/test/resources/cloudWebTNG.xml</suite.file>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>cloudAndroidNativeApp</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>./src/test/resources/cloudAndroidNativeApp.xml</suite.file>
+            </properties>
+        </profile>
+        <profile>
+            <id>cloudIOSnativeApp</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>./src/test/resources/cloudIOSnativeApp.xml</suite.file>
             </properties>
         </profile>
     </profiles>

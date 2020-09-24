@@ -7,6 +7,8 @@ import org.testng.annotations.Test;
 import pageObjects.GoogleHomePageObject;
 import setup.BaseTest;
 
+import static org.testng.Assert.assertTrue;
+
 public class webMobileTests extends BaseTest {
 
     GoogleHomePageObject googleHomePageObject = new GoogleHomePageObject();
@@ -15,7 +17,7 @@ public class webMobileTests extends BaseTest {
     @DataProvider(name = "data-provider")
     public Object[][] dataProviderMethod() {
         return new Object[][]{
-                {"https://www.google.com/", "//input[@name='q']", "EPAM", "//cite[text() = \"www.epam.com\"]"}
+                {"https://www.google.com/", "//input[@name='q']", "EPAM", "//div[@id='rso']//following-sibling::*"}
         };
     }
 
@@ -23,7 +25,7 @@ public class webMobileTests extends BaseTest {
     public void searchEpamInGoogle(String site, String inputField, String query, String result) {
         getDriver().get(site);
         getDriver().findElement(By.xpath(inputField)).sendKeys(query, Keys.ENTER);
-        getDriver().findElement(By.xpath(result)).isDisplayed();
+        assertTrue(getDriver().findElement(By.xpath(result)).isDisplayed());
     }
 
 }
