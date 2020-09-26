@@ -1,3 +1,5 @@
+package demo;
+
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.ios.IOSDriver;
 import org.junit.After;
