@@ -30,7 +30,7 @@ public class nativeMobileTests extends BaseTest {
         getPo().getBaseNativePageObject("passwordField").sendKeys(password);
         getPo().getBaseNativePageObject("signInBtn").click();
 
-        assertTrue(getPo().getBudgetActivityNativePageObject("budgetActivity").isDisplayed());
+        assertTrue(getPo().getBudgetActivityNativePageObject("addExpBtn").isDisplayed());
     }
 
 }

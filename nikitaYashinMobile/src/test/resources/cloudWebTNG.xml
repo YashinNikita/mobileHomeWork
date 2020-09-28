@@ -5,6 +5,7 @@
     <parameter name="udid" value="1cf85e98a10d7ece"></parameter>
     <parameter name="platformName" value="Android"></parameter>
     <parameter name="browserName" value="Chrome"></parameter>
+
     <test name="Cloud Web tests">
         <groups>
             <run>
@@ -15,4 +16,5 @@
             <package name="scenarios"></package>
         </packages>
     </test>
+
 </suite>

@@ -13,7 +13,6 @@ public class webMobileTests extends BaseTest {
 
     GoogleHomePageObject googleHomePageObject = new GoogleHomePageObject();
 
-    //describes url, query field(xPath), query, query result(xPath)
     @DataProvider(name = "data-provider")
     public Object[][] dataProviderMethod() {
         return new Object[][]{
@@ -21,7 +20,7 @@ public class webMobileTests extends BaseTest {
         };
     }
 
-    @Test(dataProvider = "data-provider", groups = {"web"}, description = "search page and make a search using keyword ‘EPAM’")
+    @Test(priority = 1, dataProvider = "data-provider", groups = {"web"}, description = "search page and make a search using keyword ‘EPAM’")
     public void searchEpamInGoogle(String site, String inputField, String query, String result) {
         getDriver().get(site);
         getDriver().findElement(By.xpath(inputField)).sendKeys(query, Keys.ENTER);

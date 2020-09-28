@@ -9,7 +9,7 @@ import java.lang.reflect.Field;
 public class PageObject implements IPageObject {
 
     Object somePageObject; // it should be set of web page or EPAM Test App WebElements
-    BaseNativePageObject baseNativePageObject;
+    NativePageObject nativePageObject;
     BudgetActivityNativePageObject budgetActivityNativePageObject;
     RegistrationNativePageObject registrationNativePageObject;
     GoogleHomePageObject googleHomePageObject;
@@ -20,9 +20,10 @@ public class PageObject implements IPageObject {
         switch (appType) {
             case "web":
                 somePageObject = new GoogleHomePageObject(appiumDriver);
+                googleHomePageObject = new GoogleHomePageObject(appiumDriver);
                 break;
             case "native":
-                baseNativePageObject = new BaseNativePageObject(appiumDriver);
+                nativePageObject = new NativePageObject(appiumDriver);
                 budgetActivityNativePageObject = new BudgetActivityNativePageObject(appiumDriver);
                 registrationNativePageObject = new RegistrationNativePageObject(appiumDriver);
                 break;
@@ -31,7 +32,6 @@ public class PageObject implements IPageObject {
         }
 
     }
-
 
     @Override
     public WebElement getWelement(String weName) throws NoSuchFieldException, IllegalAccessException {
@@ -44,9 +44,9 @@ public class PageObject implements IPageObject {
     @Override
     public WebElement getBaseNativePageObject(String weName) throws NoSuchFieldException, IllegalAccessException {
         // use reflection technique
-        Field field = baseNativePageObject.getClass().getDeclaredField(weName);
+        Field field = nativePageObject.getClass().getDeclaredField(weName);
         field.setAccessible(true);
-        return (WebElement) field.get(baseNativePageObject);
+        return (WebElement) field.get(nativePageObject);
     }
 
     @Override
