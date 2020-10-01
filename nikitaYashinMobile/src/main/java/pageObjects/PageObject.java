@@ -20,6 +20,7 @@ public class PageObject implements IPageObject {
         switch (appType) {
             case "web":
                 somePageObject = new GoogleHomePageObject(appiumDriver);
+                googleHomePageObject = new GoogleHomePageObject(appiumDriver);
                 break;
             case "native":
                 baseNativePageObject = new BaseNativePageObject(appiumDriver);

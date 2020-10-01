@@ -7,25 +7,28 @@ import org.testng.annotations.Test;
 import pageObjects.GoogleHomePageObject;
 import setup.BaseTest;
 
+import static org.testng.Assert.assertNotNull;
 import static org.testng.Assert.assertTrue;
 
 public class webMobileTests extends BaseTest {
 
-    GoogleHomePageObject googleHomePageObject = new GoogleHomePageObject();
+    GoogleHomePageObject googleHomePageObject;
 
-    //describes url, query field(xPath), query, query result(xPath)
+    //to add more if needed
     @DataProvider(name = "data-provider")
     public Object[][] dataProviderMethod() {
         return new Object[][]{
-                {"https://www.google.com/", "//input[@name='q']", "EPAM", "//div[@id='rso']//following-sibling::*"}
+                {"EPAM"}
         };
     }
 
-    @Test(dataProvider = "data-provider", groups = {"web"}, description = "search page and make a search using keyword ‘EPAM’")
-    public void searchEpamInGoogle(String site, String inputField, String query, String result) {
-        getDriver().get(site);
-        getDriver().findElement(By.xpath(inputField)).sendKeys(query, Keys.ENTER);
-        assertTrue(getDriver().findElement(By.xpath(result)).isDisplayed());
+    @Test(dataProvider = "data-provider", groups = {"web"}, description = "method searsh a search using keyword ‘EPAM’")
+    public void test2(String search){
+        googleHomePageObject = new GoogleHomePageObject(getDriver());
+
+        getDriver().get(googleHomePageObject.url);
+        googleHomePageObject.getQueryField().sendKeys(search, Keys.ENTER);
+        assertNotNull(googleHomePageObject.getResultStatuses().size());
     }
 
 }
