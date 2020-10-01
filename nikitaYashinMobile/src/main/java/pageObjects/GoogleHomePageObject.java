@@ -20,7 +20,7 @@ public class GoogleHomePageObject {
 
     @FindBy(xpath = "//input[@name='q']")
     WebElement queryField;
-    @FindBy(xpath = "//div[@id='rso']//following-sibling::*")
+    @FindBy(className = "iUh30*")
     List<WebElement> resultStatuses;
 
     public GoogleHomePageObject(AppiumDriver appiumDriver) {

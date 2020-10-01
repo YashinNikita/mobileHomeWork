@@ -28,7 +28,7 @@ public class webMobileTests extends BaseTest {
 
         getDriver().get(googleHomePageObject.url);
         googleHomePageObject.getQueryField().sendKeys(search, Keys.ENTER);
-        assertNotNull(googleHomePageObject.getResultStatuses().size());
+        assertTrue(googleHomePageObject.getResultStatuses().size() > 2);
     }
 
 }
