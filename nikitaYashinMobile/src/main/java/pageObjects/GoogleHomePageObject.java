@@ -20,7 +20,7 @@ public class GoogleHomePageObject {
 
     @FindBy(xpath = "//input[@name='q']")
     WebElement queryField;
-    @FindBy(className = "iUh30*")
+    @FindBy(xpath = "//span[contains(text(), 'EPAM')]")
     List<WebElement> resultStatuses;
 
     public GoogleHomePageObject(AppiumDriver appiumDriver) {
