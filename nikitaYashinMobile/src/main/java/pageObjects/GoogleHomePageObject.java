@@ -13,12 +13,12 @@ import java.util.List;
 @NoArgsConstructor
 public class GoogleHomePageObject {
 
-    public String url = "https://www.google.com/";
+    private String url = "https://www.google.com/";
 
     @FindBy(xpath = "//input[@name='q']")
-    WebElement queryField;
+    private WebElement queryField;
     @FindBy(xpath = "//div[@id='rso']//following-sibling::*")
-    List<WebElement> resultStatuses;
+    private List<WebElement> resultStatuses;
 
     public GoogleHomePageObject(AppiumDriver appiumDriver) {
         PageFactory.initElements(appiumDriver, this);

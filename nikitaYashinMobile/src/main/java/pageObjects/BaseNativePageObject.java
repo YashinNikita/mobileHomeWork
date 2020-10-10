@@ -9,13 +9,13 @@ import org.openqa.selenium.support.PageFactory;
 public class BaseNativePageObject{
 
     @AndroidFindBy(id = "platkovsky.alexey.epamtestapp:id/email_sign_in_button")
-    WebElement signInBtn;
+    private WebElement signInBtn;
     @AndroidFindBy(id = "platkovsky.alexey.epamtestapp:id/login_email")
-    WebElement emailOrUserNameField;
+    private WebElement emailOrUserNameField;
     @AndroidFindBy(id = "platkovsky.alexey.epamtestapp:id/login_pwd")
-    WebElement passwordField;
+    private WebElement passwordField;
     @AndroidFindBy(id = "platkovsky.alexey.epamtestapp:id/register_button")
-    WebElement registerBtn;
+    private WebElement registerBtn;
 
 
     public BaseNativePageObject(AppiumDriver appiumDriver) {
