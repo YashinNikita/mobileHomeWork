@@ -27,4 +27,5 @@ public class webMobileTests extends BaseTest {
         assertTrue(getDriver().findElement(By.xpath(result)).isDisplayed());
     }
 
+
 }
