@@ -8,7 +8,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 public class NativePageObject {
-
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeTextField[@value='user@example.com']")
     @AndroidFindBy(id = "platkovsky.alexey.epamtestapp:id/login_email")
     private WebElement emailOrUserNameField;
@@ -28,5 +27,4 @@ public class NativePageObject {
     public NativePageObject(AppiumDriver appiumDriver) {
         PageFactory.initElements(new AppiumFieldDecorator(appiumDriver), this);
     }
-
 }

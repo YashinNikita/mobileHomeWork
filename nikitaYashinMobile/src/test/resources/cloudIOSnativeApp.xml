@@ -4,7 +4,6 @@
     <parameter name="udid" value="bd13c2ec28101bd1553eedc83ad2aa067610e324"></parameter>
     <parameter name="platformName" value="iOS"></parameter>
     <parameter name="bundleId" value="com.epam.EPAMTestApp.ii">
-
     </parameter>
     <test name="iOS Native tests">
         <groups>
@@ -16,5 +15,4 @@
             <package name="scenarios"/>
         </packages>
     </test>
-
 </suite>

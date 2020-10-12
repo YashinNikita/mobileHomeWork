@@ -8,7 +8,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 public class BudgetActivityNativePageObject {
-
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@label='Add']")
     @AndroidFindBy(id = "platkovsky.alexey.epamtestapp:id/add_new_expense")
     private WebElement addExpBtn;

@@ -5,7 +5,6 @@
     <parameter name="platformName" value="Android"></parameter>
     <parameter name="appPackage" value="platkovsky.alexey.epamtestapp"></parameter>
     <parameter name="appActivity" value="activities.LoginActivity"></parameter>
-
     <test name="Cloud Native tests">
         <groups>
             <run>
@@ -16,5 +15,4 @@
             <package name="scenarios"/>
         </packages>
     </test>
-
 </suite>

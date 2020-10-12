@@ -12,9 +12,7 @@ import java.util.List;
 @Getter
 @NoArgsConstructor
 public class GoogleHomePageObject {
-
     private String url = "https://www.google.com/";
-
     @FindBy(xpath = "//input[@name='q']")
     private WebElement queryField;
     @FindBy(xpath = "//div[@id='rso']//following-sibling::*")
@@ -24,6 +22,4 @@ public class GoogleHomePageObject {
         PageFactory.initElements(appiumDriver, this);
         appiumDriver.get(url);
     }
-
-
 }

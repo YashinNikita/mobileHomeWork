@@ -8,7 +8,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 public class RegistrationNativePageObject {
-
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeTextField[@value='user@example.com']")
     @AndroidFindBy(id = "platkovsky.alexey.epamtestapp:id/registration_email")
     private WebElement registrationEmailField;

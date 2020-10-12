@@ -4,7 +4,6 @@
     <parameter name="deviceName" value="emulator-5554"></parameter>
     <parameter name="platformName" value="Android"></parameter>
     <parameter name="app" value="./src/main/resources/EPAMTestApp.apk"></parameter>
-
     <test name="Native tests">
         <groups>
             <run>
@@ -15,5 +14,4 @@
             <package name="scenarios"/>
         </packages>
     </test>
-
 </suite>

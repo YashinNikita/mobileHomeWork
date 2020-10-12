@@ -17,7 +17,6 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 public class BaseTest implements IDriver {
-
     private static AppiumDriver appiumDriver; // singleton
     protected Properties properties;
     private IPageObject po;
@@ -43,8 +42,7 @@ public class BaseTest implements IDriver {
                       @Optional("") String appActivity,
                       @Optional("") String bundleId
 
-    ) throws Exception
-    {
+    ) throws Exception {
         System.out.println("Before: app type - " + appType);
         setAppiumDriver(platformName, deviceName, udid, browserName, app, appPackage, appActivity, bundleId);
         setPageObject(appType, appiumDriver);
@@ -90,7 +88,7 @@ public class BaseTest implements IDriver {
     }
 
     private void setPageObject(String appType, AppiumDriver appiumDriver) throws Exception {
-            po = new PageObject(appType, appiumDriver);
+        po = new PageObject(appType, appiumDriver);
 
     }
 
