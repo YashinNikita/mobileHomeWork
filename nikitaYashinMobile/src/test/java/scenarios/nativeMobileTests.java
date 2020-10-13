@@ -4,20 +4,23 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import setup.BaseTest;
 
+import java.io.IOException;
+import java.util.Properties;
+
 import static org.testng.Assert.assertTrue;
 
 public class nativeMobileTests extends BaseTest {
 
-    @DataProvider(name = "data-provider")
-    public Object[][] dataProviderMethod() {
-        return new Object[][]{
-                {"nik@mail.ru", "nik", "qwerty123"}
-        };
+    private Properties properties = getProperties();
+    public nativeMobileTests() throws IOException {
     }
+    private String email = properties.getProperty("email");
+    private String name = properties.getProperty("username");
+    private String password = properties.getProperty("password");
 
 
-    @Test(dataProvider = "data-provider", groups = {"native"}, description = "register and sign in as a new user")
-    public void singUpAsNewUser(String email, String name, String password)
+    @Test(groups = {"native"}, description = "register and sign in as a new user")
+    public void singUpAsNewUser()
             throws IllegalAccessException, NoSuchFieldException, InstantiationException {
 
         getPo().getBaseNativePageObject("registerBtn").click();

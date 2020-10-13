@@ -9,14 +9,19 @@ import org.testng.annotations.Parameters;
 import pageObjects.PageObject;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 public class BaseTest implements IDriver {
 
     private static AppiumDriver appiumDriver; // singleton
     IPageObject po;
+    private Properties properties;
+    private final String configDataPath = "src/test/resources/config.properties";
 
     @Override
     public AppiumDriver getDriver() {
@@ -25,6 +30,13 @@ public class BaseTest implements IDriver {
 
     public IPageObject getPo() {
         return po;
+    }
+
+    public Properties getProperties() throws IOException {
+        properties = new Properties();
+        FileInputStream ip = new FileInputStream(configDataPath);
+        properties.load(ip);
+        return properties;
     }
 
     @Parameters({"platformName", "appType", "deviceName", "udid", "browserName", "app", "appPackage", "appActivity", "bundleId"})
