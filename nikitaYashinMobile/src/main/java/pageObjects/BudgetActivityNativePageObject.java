@@ -11,7 +11,7 @@ public class BudgetActivityNativePageObject {
 
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@label='Add']")
     @AndroidFindBy(id = "platkovsky.alexey.epamtestapp:id/add_new_expense")
-    WebElement addExpBtn;
+    private WebElement addExpBtn;
 
     public BudgetActivityNativePageObject(AppiumDriver appiumDriver) {
         PageFactory.initElements(new AppiumFieldDecorator(appiumDriver), this);

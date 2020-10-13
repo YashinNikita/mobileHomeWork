@@ -8,11 +8,11 @@ import java.lang.reflect.Field;
 
 public class PageObject implements IPageObject {
 
-    Object somePageObject; // it should be set of web page or EPAM Test App WebElements
-    NativePageObject nativePageObject;
-    BudgetActivityNativePageObject budgetActivityNativePageObject;
-    RegistrationNativePageObject registrationNativePageObject;
-    GoogleHomePageObject googleHomePageObject;
+    private Object somePageObject; // it should be set of web page or EPAM Test App WebElements
+    private NativePageObject nativePageObject;
+    private BudgetActivityNativePageObject budgetActivityNativePageObject;
+    private RegistrationNativePageObject registrationNativePageObject;
+    private GoogleHomePageObject googleHomePageObject;
 
     public PageObject(String appType, AppiumDriver appiumDriver) throws Exception {
 

@@ -113,6 +113,15 @@
                 <suite.file>./src/test/resources/cloudIOSnativeApp.xml</suite.file>
             </properties>
         </profile>
+        <profile>
+            <id>cloudIosWeb</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>./src/test/resources/cloudIosWeb.xml</suite.file>
+            </properties>
+        </profile>
 
     </profiles>
 
