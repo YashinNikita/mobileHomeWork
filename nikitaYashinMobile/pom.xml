@@ -8,7 +8,8 @@
     <artifactId>mobileTaTrainingV2</artifactId>
     <version>1.0-SNAPSHOT</version>
     <properties>
-        <token>be4696f6-bb71-4b8b-9ccb-11b9b0025cfe</token>
+        <!--http://maven.apache.org/settings.html-->
+        <token>${epam-mobile-token}</token>
     </properties>
 
     <dependencies>
